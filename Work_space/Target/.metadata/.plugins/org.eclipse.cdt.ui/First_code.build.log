@@ -1,0 +1,20 @@
+22:01:03 **** Build of configuration Debug for project First_code ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f303retx.d" -MT"Startup/startup_stm32f303retx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f303retx.o" "../Startup/startup_stm32f303retx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F3 -DSTM32F303RETx -DNUCLEO_F303RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F3 -DSTM32F303RETx -DNUCLEO_F303RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F3 -DSTM32F303RETx -DNUCLEO_F303RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "First_code.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\HP\Documents\My_GIT\Embedded_C\Work_space\Target\First_code\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="First_code.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: First_code.elf
+ 
+arm-none-eabi-size  First_code.elf 
+arm-none-eabi-objdump -h -S First_code.elf  > "First_code.list"
+   text	   data	    bss	    dec	    hex	filename
+    656	      8	   1568	   2232	    8b8	First_code.elf
+Finished building: default.size.stdout
+ 
+Finished building: First_code.list
+ 
+
+22:01:05 Build Finished. 0 errors, 0 warnings. (took 1s.383ms)
+
